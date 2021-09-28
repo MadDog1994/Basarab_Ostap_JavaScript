@@ -1,7 +1,7 @@
 let numX = parseInt(prompt('Write a number X from 0 - 100'));
 let numM = parseInt(prompt('Write a number M from 0 - 100'));
 
-if(numX == '' || numM == '' || isNaN(numX) || isNaN(numM)|| numX == null || numM == null){
+if(!Number.isInteger(numX) || !Number.isInteger(numM)){
     alert('Try again')
     document.location.reload()
 }else{
