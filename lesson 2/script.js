@@ -1,5 +1,5 @@
-let numX = parseInt(prompt('Write a number X from 0 - 100'));
-let numM = parseInt(prompt('Write a number M from 0 - 100'));
+const numX = parseInt(prompt('Write a number X from 0 - 100'));
+const numM = parseInt(prompt('Write a number M from 0 - 100'));
 
 if(!Number.isInteger(numX) || !Number.isInteger(numM)){
     alert('Try again')
