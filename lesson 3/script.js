@@ -91,12 +91,9 @@ const deleteLetters = (letter,word) =>{
 const findPolydrome = (Polydrome) =>{
     const strPolydrome = Polydrome.replaceAll(' ','').toLowerCase();
     const reverse = Polydrome.split('').reverse().join('').replaceAll(' ','').toLowerCase();
-    if(strPolydrome === reverse){
-        return true
-    }
-    else{
-        return false
-    }
+
+    return strPolydrome === reverse ? true : false
+
 }
 
 // # 11 Видаляє з речення букви, які зустрічаються більше 1 разу
