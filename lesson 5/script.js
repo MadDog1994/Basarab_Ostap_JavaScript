@@ -46,17 +46,21 @@ console.log(getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 
 
 const replaceBadWords = (string) => {
 	const censoredWords = ['shit', 'fuck', 'bastard'];
-	let censoredString = string.toLowerCase();
+	let censoredString = string;
 
-	for (let i = 0; i < censoredWords.length; i++) {
-        const length = censoredWords[i].length;
+    for(let word of censoredWords){
+        const length = word.length;
         const toHide = '*'.repeat(length);
-		censoredString = censoredString.split(censoredWords[i]).join(toHide);
-	}
+        if(string.toLowerCase().includes(word)){
+            censoredString = censoredString.slice(0,1) + censoredString.slice(1)
+            .toLowerCase()
+            .replaceAll(word, toHide)
+        }
+    }
 	return censoredString;
 }
 
-console.log(replaceBadWords('Shit, what the fuck ? this guy is really bastard'));
+console.log(replaceBadWords('What the Fuck ? Shit this guy is really bastard'));
 
 // # 9 Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви.Якщо букв менше трьох – не розбиває.Пробіли завжди видаляються.Рядок приводится до нижнього регістру.Приклад: divideByThree("Commander) -> ["com", "man", "der"] Приклад: divideByThree("live") -> ["liv", "e"]
 
@@ -79,3 +83,25 @@ function divideByThree(string) {
 console.log(divideByThree("Розділи мене на три"));
 
 
+// function replaceBadWords(string) {
+//     const shitWords = ['shit', 'fuck', 'asshole'];
+//     let result = string;
+  
+//     for (let word of shitWords) {
+//       let length = word.length;
+//       let star = '*'.repeat(length);
+//       if (string.toLowerCase().includes(word)) {
+//         result = result.toLowerCase().replaceAll(word.toLocaleLowerCase(), star);
+        
+//       }
+//     };
+//     result = result[0].toUpperCase() + result.slice(1);
+//     for (let i = 1; i < result.length - 1; i++) {
+//       if (result[i] === '?' || result[i] === '!' || result[i] === '.' ) {
+//         result = result.replace(result[(i + 2)], result[(i + 2)].toUpperCase());
+//       }
+//     }
+//     return result;
+//   }
+//   const onlyGoodWords = replaceBadWords("TrY tO rEtuReN aLl Shit Fuck FUck , Katarina ?");
+//   console.log(onlyGoodWords);
