@@ -27,14 +27,17 @@ function getAllTaxes(salary = this.middleSalary, vacancies = this.vacancies) {
     return (this.tax * salary * vacancies).toFixed(2)
 };
 
-const getRandomSalary = (max = 2000, min = 1500) => Math.floor(Math.random() * (max - min + 1) + min);
+
 
 function getMySalary(country){
+    const getRandomSalary = (max = 2000, min = 1500) => Math.floor(Math.random() * (max - min + 1) + min);
     const tax = +getMyTaxes.call(country, getRandomSalary()).toFixed(2);
+    const profit = +(getRandomSalary() - tax).toFixed(2);
+    
     return {
         salary: getRandomSalary(),
         taxes: tax,
-        profit: +(getRandomSalary() - tax).toFixed(2)
+        profit: profit
     };
 };
 
