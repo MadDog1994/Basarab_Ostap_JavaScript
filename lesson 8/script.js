@@ -1,28 +1,32 @@
 
 class Student {
-    marks = [5, 4, 4, 5];
-    deleted = null;
     constructor(university, course, fullName) {
         this.university = university;
         this.course = course;
         this.fullName = fullName;
+        this.marks = [5, 4, 4, 5];
+        this.isExpelled = false;
     }
     getInfo() {
         return `Студент ${this.course}го курсу ${this.university} ${this.fullName}`
     }
-    getMarks() {
-        return this.marks
+    get getMarks() {
+        if (!this.isExpelled) {
+            return this.marks
+        }
+        else {
+            return null;
+        }
     }
-    setMarks(mark) {
-        if (this.marks !== null) {
+    set setMarks(mark) {
+        if (!this.isExpelled) {
             this.marks.push(mark)
-        } else (
-            this.marks = null
-        )
+        }
     }
     getAverageMark() {
-        if (this.marks !== null) {
-            return this.marks.reduce((acc, i) => acc + i) / this.marks.length;
+        if (!this.isExpelled) {
+            const result = this.marks.reduce((acc, i) => acc + i) / this.marks.length;
+            return +result.toFixed(2);
         }
         else {
             return null;
@@ -30,11 +34,15 @@ class Student {
 
     }
     dismiss() {
-        this.deleted = this.marks;
-        this.marks = null;
+        if (!this.isExpelled) {
+            this.isExpelled = true;
+        }
     }
     return() {
-        this.marks = this.deleted;
+        if (this.isExpelled) {
+            this.isExpelled = false;
+        }
+
     }
 
 };
@@ -45,26 +53,30 @@ const ostap = new Student('НУ Львівська Політехніка м.Л�
 console.log(ostap.getInfo());
 
 // Виводим оцінки
-console.log(ostap.getMarks());
+console.log(ostap.getMarks);
 
 // добавляєм оцінки
-ostap.setMarks(5)
+ostap.setMarks = 5;
 
 // показуєм оцінки і середній бал
-console.log(ostap.getMarks());
+console.log(ostap.getMarks);
 console.log(ostap.getAverageMark());
 
 // відчисляєм студента
 ostap.dismiss();
+
 // пробуєм добавити оцінку
-ostap.setMarks(5);
+ostap.setMarks = 5;
+
 // пробуєм вивести оцінки та середній бал відчисленого студента
-console.log(ostap.getMarks());
+console.log(ostap.getMarks);
 console.log(ostap.getAverageMark());
+
 // повертаєм студента
 ostap.return();
+
 // виводим оцінки і середній бал
-console.log(ostap.getMarks());
+console.log(ostap.getMarks);
 console.log(ostap.getAverageMark());
 
 
@@ -85,12 +97,13 @@ const petro = new BudgetStudent('НУ Львівська Політехника'
 console.log(`Дані нового студента: ${petro.getInfo()}`);
 
 // добавляєм оцінки 
-petro.setMarks(5);
+petro.setMarks = 5;
+
 // дивимся оцінки і середній бал
-console.log(petro.getMarks());
+console.log(petro.getMarks);
 console.log(petro.getAverageMark());
+
 // видаляєм студента
 petro.dismiss();
 // повертаєм студента
 petro.return();
-console.log(Student);
