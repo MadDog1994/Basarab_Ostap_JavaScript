@@ -23,7 +23,7 @@ const peoplePicture = {
     "https://swapi.dev/api/people/22/": "https://retoys.ru/image/cache/catalog/BobaFett/star-wars-boba-fett-premium-format-silo-3005151-min-228x228.png",
     "https://swapi.dev/api/people/23/": "https://starwars.ru/media/cache/77/02/770252838ea0adac7179f59b6d76a69b.png",
     "https://swapi.dev/api/people/24/": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ec55a469-bb2e-484e-aa22-237f48fe45db/d1ztju1-a2dd3c92-1270-4029-b84d-c4bb7d9c2b6d.png/v1/fill/w_429,h_465,strp/star_wars_bossk_by_dorsalfin_d1ztju1-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDY1IiwicGF0aCI6IlwvZlwvZWM1NWE0NjktYmIyZS00ODRlLWFhMjItMjM3ZjQ4ZmU0NWRiXC9kMXp0anUxLWEyZGQzYzkyLTEyNzAtNDAyOS1iODRkLWM0YmI3ZDljMmI2ZC5wbmciLCJ3aWR0aCI6Ijw9NDI5In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.wBKGL0osr2QmMhYUQik8M9MaJwsjEMZkEVq3W4_LDGc",
-    "https://swapi.dev/api/people/25/": "https://lh3.googleusercontent.com/proxy/_0Jiq1accVrVmPDEg55BsciZbAYlv2O8OL-fhj4zq6xQZXWBrMVgdi86icek5lcSpoo-4WeWjSuZYDESGWNuMhJSVA",
+    "https://swapi.dev/api/people/25/": "https://discourse.disneyheroesgame.com/uploads/default/original/3X/f/8/f8b506fbcabdf61dbbdccdfe186d7d2f3efb62c3.png",
     "https://swapi.dev/api/people/26/": "https://starwars.ru/media/universe_entity/lobot_detail.png"
 };
 let currentPage = 1;
@@ -62,7 +62,7 @@ function getPlanets() {
     axios
         .get(`${baseUrl}planets/?page=${currentPage}`)
         .then((response) => {
-            span.textContent = `Planet info: page ${currentPage}`
+            span.textContent = "Planets :"
             list.innerHTML = '';
             const planet = response.data.results;
             planet.forEach(planet => {
@@ -80,10 +80,12 @@ function aboutFilm(){
     .then((response) => {
         const aboutFilm = response.data;
         const aboutFilmList = `
-        <p class="white">Title: ${aboutFilm.title}</p>
-        <p class="white">Episode: ${aboutFilm.episode_id}</p>
-        <p class="white">Release data: ${aboutFilm.release_date}</p>
-        <p class="white">Created in: ${aboutFilm.created} </p>
+        <div class="aboutFilm">
+        <p class="aboutFilmCenter">Title: ${aboutFilm.title}</p>
+        <p class="aboutFilmCenter">Episode: ${aboutFilm.episode_id}</p>
+        <p class="aboutFilmCenter">Release data: ${aboutFilm.release_date}</p>
+        <p class="aboutFilmCenter">Created in: ${aboutFilm.created} </p>
+        <div>
         `;
         filmInfo.innerHTML = aboutFilmList;
         console.log(aboutFilm.title);

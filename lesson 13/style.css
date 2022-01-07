@@ -2,7 +2,7 @@ html {
     font-family: 'helvetica neue', helvetica, arial, sans-serif;
   }
 body{
-    background-image: url(assets/background/rise-of-skywalker-poster-tall.jpg);
+    background-image: url(assets/background/space.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-attachment: fixed;
@@ -15,31 +15,60 @@ body{
     margin: auto;
     margin-top: 50px;
 }
+.position_center{
+    margin-bottom: 20px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+}
+#searchButton{
+    margin-top: 5px;
+}
+.input_style{
+    width: 55%;
+    height: 20px;
+    background-color: rgb(252 228 19);
+    box-shadow: 0 0 10px rgb(252 228 19);
+    margin: 0 auto;
+    font-weight: bold;
+}
 #get_info{
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+}
+button{
+    border-color: rgb(252 228 19);
+    font-size: 15px;
+    background-color: black;
+    color: rgb(252 228 19);
+    font-weight: bold;
+    box-shadow: 0 0 10px rgb(252 228 19);
 }
 span{
     font-size: 20px;
     font-weight: bold;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: white;
+    color: rgb(252 228 19);
+    border: 3px solid rgb(252 228 19);
+    background-color: black;
+    padding: 5px;
+    box-shadow: 0 0 10px rgb(252 228 19);
 }
 p{
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 li{
-    color: antiquewhite;
+    color: rgb(252 228 19);
     font-size: 20px;
 }
 .cell{
     height: 250px;
     width: 25%;
-    border: 3px solid black;
+    border: 3px solid rgb(226, 209, 209);
     margin-top: 5px;
     text-align: center;
-    
+    color: whitesmoke;
+    box-shadow: 0 0 10px rgb(230, 228, 223)
 }
 .picture{
     height: 120px;
@@ -48,6 +77,13 @@ li{
 .pages_planet{
     margin: 20px 0px 0px 0px;
 }
-.white{
-    color: wheat;
+.aboutFilm{
+    box-shadow: 0 0 10px rgb(252 228 19);
+    background-color: black;
+    margin-top: 5px;
+    border: 2px solid rgb(252 228 19);
+    color: rgb(252 228 19);
+}
+.aboutFilmCenter{
+    text-align: center;
 }

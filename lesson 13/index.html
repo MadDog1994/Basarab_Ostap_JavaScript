@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,17 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
+
 <body>
-    <button id="get_info">get info</button>
-    <input type="number" name="film" id="input">
-    <button id="searchButton">Search</button>
-    <div id="film_info"></div>
+    <div class="position_center">
+        <button id="get_info">get info about characters</button>
+        <input class="input_style" type="number" name="film" id="input" placeholder="choose a film 1 - 6">
+        <button id="searchButton">Search</button>
+        <div id="film_info"></div>
+    </div>
     <div>
         <span></span>
-        <ul id="list">
-        </ul>
+        <ul id="list"></ul>
     </div>
     <div class="pages_planet">
         <button id="previous">previous</button>
@@ -26,6 +29,7 @@
     <section id='container'></section>
 
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
